@@ -14,6 +14,7 @@ RUN yum -y install lsb
 #Copy necessary files
 COPY linux64/ /opt/linux64/
 
+EXPOSE 27020
 
 #Run lmgrd
 CMD ["/opt/linux64/bin/lmgrd", "-c /opt/linux64/license/SynopsysKey.lic", "-l /opt/linux64/logs/debug.log"] 

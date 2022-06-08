@@ -27,9 +27,14 @@ RUN yum -y install lsb
 
 #Copy necessary files
 COPY linux64/ /opt/linux64/
+COPY linux64/systemd/scl7.service /etc/systemd/system/
+
+#Enable scl7 service
+RUN systemctl enable /etc/systemd/system/scl7.service
 
 EXPOSE 27020
 
 #Run lmgrd
-CMD ["/opt/linux64/bin/lmgrd", "-c /opt/linux64/license/SynopsysKey.lic", "-l /opt/linux64/logs/debug.log"] 
+#CMD ["/opt/linux64/bin/lmgrd", "-c /opt/linux64/license/SynopsysKey.lic", "-l /opt/linux64/logs/debug.log"] 
 
+CMD ["systemctl start scl7"]

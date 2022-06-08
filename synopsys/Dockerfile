@@ -31,6 +31,7 @@ COPY linux64/systemd/scl7.service /etc/systemd/system/
 
 #Enable scl7 service
 RUN systemctl enable /etc/systemd/system/scl7.service
+RUN chmod +x /etc/systemd/system/scl7.service
 
 EXPOSE 27020
 
